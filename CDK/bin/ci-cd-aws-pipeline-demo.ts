@@ -11,4 +11,4 @@ new CiCdAwsPipelineDemoStack(app, 'CiCdAwsPipelineDemoStack', {
   }
 });
 
-app.synth();
+// app.synth();
