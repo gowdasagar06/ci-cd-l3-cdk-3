@@ -7,8 +7,8 @@ import { MyPipelineAppStage } from './stage';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
-export class CiCdAwsPipelineDemoStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+export class CiCdAwsPipelineDemoStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
@@ -24,7 +24,7 @@ export class CiCdAwsPipelineDemoStack extends Stack {
           'mv ./Ohana-Springboot/CDK ./Ohana-Springboot/build_artifacts',
           'cd CDK',
           'ls',
-          'npm ci', 'npm run build', 'npx cdk synth',
+          'npm install', 'npm run build', 'npx cdk synth',
           'cp -r cdk.out/* ../Ohana-Springboot/build_artifacts/',
           'cd ..',
           'cp -r aws/infra/codepipeline/* Ohana-Springboot/',
