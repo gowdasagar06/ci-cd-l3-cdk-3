@@ -16,8 +16,8 @@ export class CiCdAwsPipelineDemoStack extends Stack {
       // enableKeyRotation: true,
       pipelineName: 'TestPipeline',
       synth: new CodeBuildStep('Build', {
-        input: CodePipelineSource.connection("subodh6/ci-cd-l3-cdk-3", "main", {
-          connectionArn: "arn:aws:codeconnections:us-east-1:264852106485:connection/34df75a1-47fe-460d-ad44-2b3f37911bc9",
+        input: CodePipelineSource.connection("gowdasagar06/ci-cd-l3-cdk-3", "main", {
+          connectionArn: "arn:aws:codeconnections:us-east-1:264852106485:connection/f968bc8d-0b90-4fe4-8ab1-f84769fa6afb",
         }),
         commands: [
           'cp -r CDK Ohana-Springboot/',
