@@ -35,8 +35,8 @@ export class CiCdAwsPipelineDemoStack extends Stack {
           'ls -al',
           ],
         buildEnvironment: {
-          // buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_5,
-          buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
+          buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_5,
+          // buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
         },
         primaryOutputDirectory: './Ohana-Springboot/build_artifacts',
       }),
