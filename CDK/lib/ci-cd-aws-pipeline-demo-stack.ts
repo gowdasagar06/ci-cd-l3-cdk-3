@@ -7,8 +7,8 @@ import { MyPipelineAppStage } from './stage';
 import * as codebuild from 'aws-cdk-lib/aws-codebuild';
 import * as iam from 'aws-cdk-lib/aws-iam';
 
-export class CiCdAwsPipelineDemoStack extends Stack {
-  constructor(scope: Construct, id: string, props?: StackProps) {
+export class CiCdAwsPipelineDemoStack extends cdk.Stack {
+  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
     const pipeline = new CodePipeline(this, 'Pipeline', {
@@ -16,8 +16,8 @@ export class CiCdAwsPipelineDemoStack extends Stack {
       // enableKeyRotation: true,
       pipelineName: 'TestPipeline',
       synth: new CodeBuildStep('Build', {
-        input: CodePipelineSource.connection("gowdasagar06/ci-cd-l3-cdk-3", "main", {
-          connectionArn: "arn:aws:codeconnections:us-east-1:264852106485:connection/f968bc8d-0b90-4fe4-8ab1-f84769fa6afb",
+        input: CodePipelineSource.connection("subodh6/ci-cd-l3-cdk-3", "main", {
+          connectionArn: "arn:aws:codeconnections:us-east-1:264852106485:connection/34df75a1-47fe-460d-ad44-2b3f37911bc9",
         }),
         commands: [
           'cp -r CDK Ohana-Springboot/',
@@ -35,8 +35,8 @@ export class CiCdAwsPipelineDemoStack extends Stack {
           'ls -al',
           ],
         buildEnvironment: {
-          buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_5,
-          // buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
+          // buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_5,
+          buildImage: codebuild.LinuxBuildImage.AMAZON_LINUX_2_3,
         },
         primaryOutputDirectory: './Ohana-Springboot/build_artifacts',
       }),
